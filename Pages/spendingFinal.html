@@ -5,6 +5,72 @@
   <title>mySpendingFinal</title>
   <link rel="stylesheet" href="./style.css">
 
+<style>
+  /* General body and layout styling */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container styles */
+.container {
+    background-color: #ff;
+    border-radius: 10px;
+    padding: 45px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2.5em;
+    color: #007BFF;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 1.1em;
+}
+
+/* List styles for transaction entries */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* List item styling */
+li {
+    font-size: 1.2em;
+}
+
+/* Image container */
+.img-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.img-container img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Form container and input styles */
+form {
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+</style>
+  
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -84,6 +150,49 @@
 </html>
 <!-- partial -->
   <script  src="./script.js"></script>
+
+  <script>
+    $(document).ready(function () {
+    // Initial transaction data & examples
+    const transactions = [
+        {dateTime: '01/14/2025 - Time 20:36', items: 'Tiger Roll 6pc, Gold Peak Extra Sweet Tea, Kettle Jalapeno, Ferrero Rocher 3pc', total: '$18.53', balance: '$66.04'},
+        {dateTime: '01/15/2025 - Time 15:55', items: 'Bigger Plate Panda Express', total: '$12.37', balance: '$53.67'},
+        {dateTime: '01/15/2025 - Time 21:49', items: 'Kettle Jalapeno, Buffalo Chicken Salad, Ferrero Rocher 3pc', total: '$11.68', balance: '$141.99'},
+        {dateTime: '01/17/2025 - Time 09:00', items: 'Ham Egg & Cheese Croissant, Water Cup', total: '$5.52', balance: '$136.47'},
+        {dateTime: '01/17/2025 - Time 12:37', items: 'Chicken Egg Roll 1pc, Bigger Plate Panda Express + Honey Walnut Shrimp', total: '$16.21', balance: '$120.26'},
+        {dateTime: '01/20/2025 - Time 21:14', items: 'Buffalo Chicken Wrap', total: '$9.84', balance: '$110.42'},
+        {dateTime: '01/22/2025 - Time 14:56', items: 'Ham Egg & Cheese Croissant 2pc', total: '$10.49', balance: '$71.31'},
+        {dateTime: '01/22/2025 - Time 18:11', items: 'Fortune Cookie Box', total: '$1.64', balance: '$69.67'}
+    ];
+
+    // Function to render the transaction list
+    function renderTransactions() {
+        $('#transactions-list').empty();
+        transactions.forEach(transaction => {
+            $('#transactions-list').append(`
+                <li><strong>${transaction.dateTime}</strong> - Items: ${transaction.items} - Total: ${transaction.total} - Balance: ${transaction.balance}</li>
+            `);
+        });
+    }
+
+    // Initial render of transactions
+    renderTransactions();
+
+    // Handle form submission to add new transactions
+    $('#data-form').submit(function (event) {
+        event.preventDefault();
+        const newTransaction = {
+            dateTime: $('#date-time').val(),
+            items: $('#items').val(),
+            total: `$${$('#total').val()}`,
+            balance: `$${$('#balance').val()}`
+        };
+        transactions.push(newTransaction);
+        renderTransactions(); // Re-render transactions list
+        $('#data-form')[0].reset(); // Reset the form fields
+    });
+});
+  </script>
 
 </body>
 </html>
