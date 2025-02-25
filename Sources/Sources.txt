@@ -1,0 +1,12 @@
+# Cards - HTML/CSS
+- https://www.w3schools.com/w3css/w3css_cards.asp
+- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_column_cards
+- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_cards2
+- https://www.w3schools.com/howto/howto_css_column_cards.asp
+
+# Nav Bar - HTML/CSS 
+- https://www.w3schools.com/howto/howto_js_topnav.asp
+- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_topnav
+
+# Anything Else:
+- Used previous code from Able and Baker
